@@ -2,9 +2,7 @@ const form = document.getElementById("form");
 console.log(form.action);
 const url = form.action;
 
-const btn = document.querySelector(".btn");
-btn.addEventListener("click", (e) => {
-    e.preventDefault();
+function submitForm() {
     const input = document.querySelector(".form-control").value;
     postJSON(url, { data: input }).then((colors) => {
         const mainBox = document.querySelector(".main-box");
@@ -19,7 +17,7 @@ btn.addEventListener("click", (e) => {
             mainBox.insertAdjacentElement("afterbegin", div);
         });
     });
-});
+}
 
 function hexCode(div, color) {
     const p = document.createElement("p");

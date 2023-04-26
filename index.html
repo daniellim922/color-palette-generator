@@ -15,10 +15,10 @@
 <body>
   <section class="vw-100 vh-100 position relative">
     <div class="top-50 start-50 position-absolute input-box">
-      <form action="/color-palette" id="form">
+      <form action="/color-palette" id="form" onsubmit="event.preventDefault(); submitForm();">
         <div class="input-group">
           <input type="text" placeholder="The Mediterranean Sea" class="form-control">
-          <button class="btn btn-primary" type="button">Submit</button>
+          <button class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>
