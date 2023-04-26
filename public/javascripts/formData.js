@@ -3,7 +3,8 @@ console.log(form.action);
 const url = form.action;
 
 const btn = document.querySelector(".btn");
-btn.addEventListener("click", () => {
+btn.addEventListener("click", (e) => {
+    e.preventDefault();
     const input = document.querySelector(".form-control").value;
     postJSON(url, { data: input }).then((colors) => {
         const mainBox = document.querySelector(".main-box");

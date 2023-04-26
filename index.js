@@ -47,7 +47,7 @@ app.post("/color-palette", async (req, res) => {
     try {
         const { data } = req.body;
         const response = await getColors(data);
-        const colors = response.split(",");
+        const colors = response.replaceAll("'", "").split(",");
         res.json(colors);
     } catch (error) {
         throw error;
