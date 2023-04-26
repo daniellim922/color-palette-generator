@@ -1,4 +1,5 @@
 const form = document.getElementById("form");
+console.log(form.action);
 const url = form.action;
 
 const btn = document.querySelector(".btn");
