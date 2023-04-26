@@ -26,7 +26,7 @@ async function getColors(msg) {
         Q: Convert the following verbal description of a color palette into a list of colors: The Mediterranean Sea
         A: '#00669','#66CCC','F0E68C','#008000','F08080'
 
-        Desired Format: a list of hexadecimal color codes seperated by commas   
+        Desired Format: a list of hexadecimal color codes seperated by commas 
 
         Q: Convert the following verbal description of a color palette into a list of colors: ${msg}
         A:
@@ -40,6 +40,7 @@ async function getColors(msg) {
         try {
             return res.data.choices[0].text.trim().replaceAll("'", "");
         } catch (error) {
+            console.log(typeof res.data.choices[0].text.trim());
             console.log(typeof res.data.choices[0].text);
             console.log(error);
         }
