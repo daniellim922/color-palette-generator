@@ -40,7 +40,7 @@ async function getColors(msg) {
         try {
             return res.data.choices[0].text.trim().replaceAll("'", "");
         } catch (error) {
-            console.log(res);
+            console.log(res.data.choices[0]);
             console.log(error);
         }
     } catch (error) {
