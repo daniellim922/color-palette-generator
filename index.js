@@ -1,11 +1,9 @@
-const config = require("./config");
-
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
+const path = require("path");
 require("dotenv").config();
 
-app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 const bodyParser = require("body-parser");
@@ -49,7 +47,7 @@ app.post("/color-palette", async (req, res) => {
 });
 
 app.get("/", async (req, res) => {
-    res.render("index");
+    res.sendFile(path.join(__dirname + "/index.html"));
 });
 
 app.listen(port, () => {

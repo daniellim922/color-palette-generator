@@ -1,4 +1,5 @@
-const url = `http://localhost:3000/color-palette`;
+const form = document.getElementById("form");
+const url = form.action;
 
 const btn = document.querySelector(".btn");
 btn.addEventListener("click", () => {
