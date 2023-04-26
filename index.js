@@ -40,9 +40,7 @@ async function getColors(msg) {
         try {
             return res.data.choices[0].text.trim().replaceAll("'", "");
         } catch (error) {
-            console.log(
-                res.data.choices[0].text.replaceAll("'/(\r\n|\n|\r)/gm", "")
-            );
+            console.log(res.data.choices[0].text.trim());
             console.log(typeof res.data.choices[0].text);
             console.log(error);
         }
