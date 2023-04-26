@@ -37,7 +37,12 @@ async function getColors(msg) {
             prompt,
             max_tokens: 100,
         });
-        return res.data.choices[0].text.trim().replaceAll("'", "");
+        try {
+            return res.data.choices[0].text.trim().replaceAll("'", "");
+        } catch (error) {
+            console.log(res);
+            console.log(error);
+        }
     } catch (error) {
         throw error;
     }
