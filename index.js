@@ -2,7 +2,7 @@ const config = require("./config");
 
 const express = require("express");
 const app = express();
-const port = config.express.port;
+const port = 3000;
 require("dotenv").config();
 
 app.set("view engine", "ejs");
@@ -53,7 +53,8 @@ app.get("/", async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(
-        `Example app listening at http://${config.express.ip}:${config.express.port}`
-    );
+    console.log(`Example app listening at http://localhost:3000`);
+    // console.log(
+    //     `Example app listening at http://${config.express.ip}:${config.express.port}`
+    // );
 });
