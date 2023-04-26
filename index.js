@@ -31,19 +31,27 @@ async function getColors(msg) {
         Q: Convert the following verbal description of a color palette into a list of colors: ${msg}
         A:
         `;
-    const res = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt,
-        max_tokens: 100,
-    });
-    return res.data.choices[0].text.trim().replaceAll("'", "");
+    try {
+        const res = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt,
+            max_tokens: 100,
+        });
+        return res.data.choices[0].text.trim().replaceAll("'", "");
+    } catch (error) {
+        throw error;
+    }
 }
 
 app.post("/color-palette", async (req, res) => {
-    const { data } = req.body;
-    const response = await getColors(data);
-    const colors = response.split(",");
-    res.json(colors);
+    try {
+        const { data } = req.body;
+        const response = await getColors(data);
+        const colors = response.split(",");
+        res.json(colors);
+    } catch (error) {
+        throw error;
+    }
 });
 
 app.get("/", async (req, res) => {
